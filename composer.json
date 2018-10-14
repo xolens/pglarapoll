@@ -1,6 +1,6 @@
 {
     "name": "xolens/pglarapoll",
-    "description": "Laravel survey repository package",
+    "description": "Laravel survey repository package.",
     "type": "library",
     "license": "MIT",
     "authors": [{
