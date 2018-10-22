@@ -22,11 +22,17 @@ class PgLarapollCreateViewUserGroupNotification extends PgLarapollMigration
     public function up()
     {
         $mainTable = PgLarapollCreateTableUserGroupNotifications::table();
+        $notificationTable = PgLarapollCreateTableNotifications::table();
+        $userGroupTable = PgLarapollCreateTableUserGroups::table();
         DB::statement("
             CREATE VIEW ".self::table()." AS(
                 SELECT 
-                    ".$mainTable.".*                  
+                    ".$mainTable.".*,
+                    ".$notificationTable.".name as notification_name,
+                    ".$notificationTable.".title as notification_title
                 FROM ".$mainTable." 
+                    LEFT JOIN ".$notificationTable." ON ".$notificationTable.".id = ".$mainTable.".notification_id
+                    LEFT JOIN ".$userGroupTable." ON ".$userGroupTable.".id = ".$mainTable.".user_group_id
             )
         ");
     }

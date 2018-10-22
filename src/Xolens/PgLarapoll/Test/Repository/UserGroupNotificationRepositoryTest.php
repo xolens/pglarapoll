@@ -33,9 +33,9 @@ final class UserGroupNotificationRepositoryTest extends WritableTestPgLarapollBa
         $userGroupId = $this->userGroupRepo->model()::inRandomOrder()->first()->id;
         $notificationId = $this->notificationRepo->model()::inRandomOrder()->first()->id;
         $item = $this->repository()->make([
+            'state' => 'state'.$i,
             'user_group_id' => $userGroupId,
             'notification_id' => $notificationId,
-            'state' => 'state'.$i,
         ]);
         $this->assertTrue(true);
     }
@@ -62,9 +62,9 @@ final class UserGroupNotificationRepositoryTest extends WritableTestPgLarapollBa
             $userGroupId = $this->userGroupRepo->model()::inRandomOrder()->first()->id;
             $notificationId = $this->notificationRepo->model()::inRandomOrder()->first()->id;
             $item = $this->repository()->create([
+                'state' => 'state'.$i,
                 'user_group_id' => $userGroupId,
                 'notification_id' => $notificationId,
-                'state' => 'state'.$i,
             ]);
             $generatedItemsId[] = $item->response()->id;
         }

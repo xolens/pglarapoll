@@ -19,7 +19,7 @@ class FormFieldValue extends Model
      * @var array
      */
     protected $fillable = [
-        'id', 'user_group_notification_id', 'form_field_id', 'value', 
+        'id', 'value', 'user_group_notification_id', 'form_field_id', 
     ];
 
     /**

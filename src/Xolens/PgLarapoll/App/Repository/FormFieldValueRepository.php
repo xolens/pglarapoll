@@ -3,7 +3,7 @@
 namespace Xolens\PgLarapoll\App\Repository;
 
 use Xolens\PgLarapoll\App\Model\FormFieldValue;
-use Xolens\LarapollContract\App\Contract\Repository\FormFieldValueRepositoryContract;
+use Xolens\PollContract\App\Contract\Repository\FormFieldValueRepositoryContract;
 use Xolens\PgLarautil\App\Repository\AbstractWritableRepository;
 use Illuminate\Validation\Rule;
 use PgLarapollCreateTableFormFieldValues;
@@ -21,8 +21,8 @@ class FormFieldValueRepository extends AbstractWritableRepository implements For
         return [
             'id' => ['required',Rule::unique(PgLarapollCreateTableFormFieldValues::table())->where(function ($query) use($id, $userGroupNotificationId, $formFieldId) {
                 return $query->where('id','!=', $id)->where('user_group_notification_id', $userGroupNotificationId)->where('form_field_id', $formFieldId);
-            })
-        ],];
+            })],
+        ];
     }//*/
     
 }

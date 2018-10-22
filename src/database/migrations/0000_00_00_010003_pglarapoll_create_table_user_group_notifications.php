@@ -26,9 +26,9 @@ class PgLarapollCreateTableUserGroupNotifications extends PgLarapollMigration
     {
         Schema::create(self::table(), function (Blueprint $table) {
             $table->increments('id');
+            $table->string('state')->nullable();
             $table->integer('user_group_id')->index();
             $table->integer('notification_id')->index();
-            $table->string('state')->nullable();
         });
         if(self::logEnabled()){
             self::registerForLog();

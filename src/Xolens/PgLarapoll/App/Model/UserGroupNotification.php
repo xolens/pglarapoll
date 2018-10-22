@@ -19,7 +19,7 @@ class UserGroupNotification extends Model
      * @var array
      */
     protected $fillable = [
-        'id', 'user_group_id', 'notification_id', 'state', 
+        'id', 'state', 'user_group_id', 'notification_id', 
     ];
 
     /**

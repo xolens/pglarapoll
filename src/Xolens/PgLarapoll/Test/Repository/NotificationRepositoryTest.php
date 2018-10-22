@@ -33,12 +33,12 @@ final class NotificationRepositoryTest extends WritableTestPgLarapollBase
         $groupId = $this->groupRepo->model()::inRandomOrder()->first()->id;
         $formId = $this->formRepo->model()::inRandomOrder()->first()->id;
         $item = $this->repository()->make([
-            'group_id' => $groupId,
-            'form_id' => $formId,
             'name' => 'name'.$i,
             'title' => 'title'.$i,
             'text' => 'text'.$i,
             'type' => 'type'.$i,
+            'group_id' => $groupId,
+            'form_id' => $formId,
         ]);
         $this->assertTrue(true);
     }
@@ -65,12 +65,12 @@ final class NotificationRepositoryTest extends WritableTestPgLarapollBase
             $groupId = $this->groupRepo->model()::inRandomOrder()->first()->id;
             $formId = $this->formRepo->model()::inRandomOrder()->first()->id;
             $item = $this->repository()->create([
-                'group_id' => $groupId,
-                'form_id' => $formId,
                 'name' => 'name'.$i,
                 'title' => 'title'.$i,
                 'text' => 'text'.$i,
                 'type' => 'type'.$i,
+                'group_id' => $groupId,
+                'form_id' => $formId,
             ]);
             $generatedItemsId[] = $item->response()->id;
         }

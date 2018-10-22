@@ -33,9 +33,9 @@ final class FormFieldRepositoryTest extends WritableTestPgLarapollBase
         $formId = $this->formRepo->model()::inRandomOrder()->first()->id;
         $fieldId = $this->fieldRepo->model()::inRandomOrder()->first()->id;
         $item = $this->repository()->make([
+            'field_position' => 'fieldPosition'.$i,
             'form_id' => $formId,
             'field_id' => $fieldId,
-            'field_position' => 'fieldPosition'.$i,
         ]);
         $this->assertTrue(true);
     }
@@ -62,9 +62,9 @@ final class FormFieldRepositoryTest extends WritableTestPgLarapollBase
             $formId = $this->formRepo->model()::inRandomOrder()->first()->id;
             $fieldId = $this->fieldRepo->model()::inRandomOrder()->first()->id;
             $item = $this->repository()->create([
+                'field_position' => random_int(0,400000),
                 'form_id' => $formId,
                 'field_id' => $fieldId,
-                'field_position' => random_int(0,400000),
             ]);
             $generatedItemsId[] = $item->response()->id;
         }

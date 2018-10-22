@@ -25,7 +25,7 @@ class PgLarapollCreateViewField extends PgLarapollMigration
         DB::statement("
             CREATE VIEW ".self::table()." AS(
                 SELECT 
-                    ".$mainTable.".*                  
+                    ".$mainTable.".*
                 FROM ".$mainTable." 
             )
         ");

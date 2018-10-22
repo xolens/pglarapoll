@@ -26,7 +26,7 @@ class PgLarapollCreateTableForms extends PgLarapollMigration
     {
         Schema::create(self::table(), function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->string('name')->unique();
             $table->text('description')->nullable();
         });
         if(self::logEnabled()){

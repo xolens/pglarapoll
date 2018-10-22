@@ -26,12 +26,12 @@ class PgLarapollCreateTableNotifications extends PgLarapollMigration
     {
         Schema::create(self::table(), function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('group_id')->index();
-            $table->integer('form_id')->index();
-            $table->string('name');
+            $table->string('name')->unique();
             $table->string('title');
             $table->string('text');
             $table->string('type');
+            $table->integer('group_id')->index();
+            $table->integer('form_id')->index();
         });
         if(self::logEnabled()){
             self::registerForLog();

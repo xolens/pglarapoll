@@ -19,7 +19,7 @@ class FormField extends Model
      * @var array
      */
     protected $fillable = [
-        'id', 'form_id', 'field_id', 'field_position', 
+        'id', 'field_position', 'form_id', 'field_id', 
     ];
 
     /**

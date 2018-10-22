@@ -33,9 +33,9 @@ final class FormFieldValueRepositoryTest extends WritableTestPgLarapollBase
         $userGroupNotificationId = $this->userGroupNotificationRepo->model()::inRandomOrder()->first()->id;
         $formFieldId = $this->formFieldRepo->model()::inRandomOrder()->first()->id;
         $item = $this->repository()->make([
+            'value' => 'value'.$i,
             'user_group_notification_id' => $userGroupNotificationId,
             'form_field_id' => $formFieldId,
-            'value' => 'value'.$i,
         ]);
         $this->assertTrue(true);
     }
@@ -62,9 +62,9 @@ final class FormFieldValueRepositoryTest extends WritableTestPgLarapollBase
             $userGroupNotificationId = $this->userGroupNotificationRepo->model()::inRandomOrder()->first()->id;
             $formFieldId = $this->formFieldRepo->model()::inRandomOrder()->first()->id;
             $item = $this->repository()->create([
+                'value' => 'value'.$i,
                 'user_group_notification_id' => $userGroupNotificationId,
                 'form_field_id' => $formFieldId,
-                'value' => 'value'.$i,
             ]);
             $generatedItemsId[] = $item->response()->id;
         }

@@ -3,7 +3,7 @@
 namespace Xolens\PgLarapoll\App\Repository;
 
 use Xolens\PgLarapoll\App\Model\Notification;
-use Xolens\LarapollContract\App\Contract\Repository\NotificationRepositoryContract;
+use Xolens\PollContract\App\Contract\Repository\NotificationRepositoryContract;
 use Xolens\PgLarautil\App\Repository\AbstractWritableRepository;
 use Illuminate\Validation\Rule;
 use PgLarapollCreateTableNotifications;
@@ -21,8 +21,9 @@ class NotificationRepository extends AbstractWritableRepository implements Notif
         return [
             'id' => ['required',Rule::unique(PgLarapollCreateTableNotifications::table())->where(function ($query) use($id, $groupId, $formId) {
                 return $query->where('id','!=', $id)->where('group_id', $groupId)->where('form_id', $formId);
-            })
-        ],];
+            })],
+            'name' => ['unique'],
+        ];
     }//*/
     
 }

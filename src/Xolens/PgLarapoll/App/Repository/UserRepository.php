@@ -3,7 +3,7 @@
 namespace Xolens\PgLarapoll\App\Repository;
 
 use Xolens\PgLarapoll\App\Model\User;
-use Xolens\LarapollContract\App\Contract\Repository\UserRepositoryContract;
+use Xolens\PollContract\App\Contract\Repository\UserRepositoryContract;
 use Xolens\PgLarautil\App\Repository\AbstractWritableRepository;
 use Illuminate\Validation\Rule;
 use PgLarapollCreateTableUsers;
@@ -19,8 +19,10 @@ class UserRepository extends AbstractWritableRepository implements UserRepositor
         return [
             'id' => ['required',Rule::unique(PgLarapollCreateTableUsers::table())->where(function ($query) use($id) {
                 return $query->where('id','!=', $id);
-            })
-        ],];
+            })],
+            'email' => ['unique'],
+            'phone' => ['unique'],
+        ];
     }//*/
     
 }

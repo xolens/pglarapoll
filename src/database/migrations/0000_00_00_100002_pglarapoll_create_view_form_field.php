@@ -22,11 +22,17 @@ class PgLarapollCreateViewFormField extends PgLarapollMigration
     public function up()
     {
         $mainTable = PgLarapollCreateTableFormFields::table();
+        $fieldTable = PgLarapollCreateTableFields::table();
+        $formTable = PgLarapollCreateTableForms::table();
         DB::statement("
             CREATE VIEW ".self::table()." AS(
                 SELECT 
-                    ".$mainTable.".*                  
+                    ".$mainTable.".*,
+                    ".$fieldTable.".name as field_name,
+                    ".$formTable.".name as form_name
                 FROM ".$mainTable." 
+                    LEFT JOIN ".$fieldTable." ON ".$fieldTable.".id = ".$mainTable.".field_id
+                    LEFT JOIN ".$formTable." ON ".$formTable.".id = ".$mainTable.".form_id
             )
         ");
     }

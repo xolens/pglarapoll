@@ -28,10 +28,9 @@ final class FieldRepositoryTest extends WritableTestPgLarapollBase
             'type' => 'type'.$i,
             'name' => 'name'.$i,
             'label' => 'label'.$i,
-            'min' => 'min'.$i,
-            'max' => 'max'.$i,
             'required' => 'required'.$i,
             'value_list' => 'valueList'.$i,
+            'description' => 'description'.$i,
         ]);
         $this->assertTrue(true);
     }
@@ -59,10 +58,9 @@ final class FieldRepositoryTest extends WritableTestPgLarapollBase
                 'type' => 'type'.$i,
                 'name' => 'name'.$i,
                 'label' => 'label'.$i,
-                'min' => random_int(0,400000),
-                'max' => random_int(0,400000),
                 'required' => $i%2==0,
                 'value_list' => 'valueList'.$i,
+                'description' => 'description'.$i,
             ]);
             $generatedItemsId[] = $item->response()->id;
         }

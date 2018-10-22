@@ -3,7 +3,7 @@
 namespace Xolens\PgLarapoll\App\Repository;
 
 use Xolens\PgLarapoll\App\Model\UserGroup;
-use Xolens\LarapollContract\App\Contract\Repository\UserGroupRepositoryContract;
+use Xolens\PollContract\App\Contract\Repository\UserGroupRepositoryContract;
 use Xolens\PgLarautil\App\Repository\AbstractWritableRepository;
 use Illuminate\Validation\Rule;
 use PgLarapollCreateTableUserGroups;
@@ -21,8 +21,8 @@ class UserGroupRepository extends AbstractWritableRepository implements UserGrou
         return [
             'id' => ['required',Rule::unique(PgLarapollCreateTableUserGroups::table())->where(function ($query) use($id, $groupId, $userId) {
                 return $query->where('id','!=', $id)->where('group_id', $groupId)->where('user_id', $userId);
-            })
-        ],];
+            })],
+        ];
     }//*/
     
 }

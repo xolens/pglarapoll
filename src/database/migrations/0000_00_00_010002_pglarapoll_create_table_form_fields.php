@@ -26,9 +26,9 @@ class PgLarapollCreateTableFormFields extends PgLarapollMigration
     {
         Schema::create(self::table(), function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('field_position')->nullable();
             $table->integer('form_id')->index();
             $table->integer('field_id')->index();
-            $table->integer('field_position')->nullable();
         });
         if(self::logEnabled()){
             self::registerForLog();
