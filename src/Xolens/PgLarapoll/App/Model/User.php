@@ -2,7 +2,7 @@
 
 namespace Xolens\PgLarapoll\App\Model;
 use Illuminate\Database\Eloquent\Model;
-
+use Xolens\LarautilContract\App\Util\Format\Formater;
 use PgLarapollCreateTableUsers;
 
 
@@ -30,5 +30,18 @@ class User extends Model
     function __construct(array $attributes = []) {
         $this->table = PgLarapollCreateTableUsers::table();
         parent::__construct($attributes);
+    }
+
+    public static function boot()
+    {
+        parent::boot();
+
+        self::creating(function($model){
+            $model->phone = Formater::formatPhone($model->phone);
+        });
+        
+        self::updating(function($model){
+            $model->phone = Formater::formatPhone($model->phone);
+        });
     }
 }

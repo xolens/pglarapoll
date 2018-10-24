@@ -22,8 +22,11 @@ class NotificationRepository extends AbstractWritableRepository implements Notif
             'id' => ['required',Rule::unique(PgLarapollCreateTableNotifications::table())->where(function ($query) use($id, $groupId, $formId) {
                 return $query->where('id','!=', $id)->where('group_id', $groupId)->where('form_id', $formId);
             })],
-            'name' => ['unique'],
+            'name' => [Rule::unique(PgLarapollCreateTableNotifications::table())->where(function ($query) use($id, $groupId, $formId) {
+                return $query->where('id','!=', $id)->where('group_id', $groupId)->where('form_id', $formId);
+            })],
         ];
-    }//*/
+    }
+    //*/
     
 }

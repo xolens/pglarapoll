@@ -23,6 +23,7 @@ class UserGroupRepository extends AbstractWritableRepository implements UserGrou
                 return $query->where('id','!=', $id)->where('group_id', $groupId)->where('user_id', $userId);
             })],
         ];
-    }//*/
+    }
+    //*/
     
 }

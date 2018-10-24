@@ -13,15 +13,13 @@ class FieldRepository extends AbstractWritableRepository implements FieldReposit
     public function model(){
         return Field::class;
     }
-    /*
     public function validationRules(array $data){
         $id = self::get($data,'id');
         return [
-            'id' => ['required',Rule::unique(PgLarapollCreateTableFields::table())->where(function ($query) use($id) {
+            'name' => [Rule::unique(PgLarapollCreateTableFields::table())->where(function ($query) use($id) {
                 return $query->where('id','!=', $id);
             })],
-            'name' => ['unique'],
         ];
-    }//*/
+    }
     
 }

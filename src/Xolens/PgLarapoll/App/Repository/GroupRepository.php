@@ -13,15 +13,13 @@ class GroupRepository extends AbstractWritableRepository implements GroupReposit
     public function model(){
         return Group::class;
     }
-    /*
     public function validationRules(array $data){
         $id = self::get($data,'id');
         return [
-            'id' => ['required',Rule::unique(PgLarapollCreateTableGroups::table())->where(function ($query) use($id) {
+            'name' => [Rule::unique(PgLarapollCreateTableGroups::table())->where(function ($query) use($id) {
                 return $query->where('id','!=', $id);
             })],
-            'name' => ['unique'],
         ];
-    }//*/
+    }
     
 }

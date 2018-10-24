@@ -13,16 +13,15 @@ class UserRepository extends AbstractWritableRepository implements UserRepositor
     public function model(){
         return User::class;
     }
-    /*
     public function validationRules(array $data){
         $id = self::get($data,'id');
         return [
-            'id' => ['required',Rule::unique(PgLarapollCreateTableUsers::table())->where(function ($query) use($id) {
+            'email' => [Rule::unique(PgLarapollCreateTableUsers::table())->where(function ($query) use($id) {
                 return $query->where('id','!=', $id);
             })],
-            'email' => ['unique'],
-            'phone' => ['unique'],
+            'phone' => [Rule::unique(PgLarapollCreateTableUsers::table())->where(function ($query) use($id) {
+                return $query->where('id','!=', $id);
+            })],
         ];
-    }//*/
-    
+    }
 }

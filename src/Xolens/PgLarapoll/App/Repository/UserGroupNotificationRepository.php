@@ -23,6 +23,7 @@ class UserGroupNotificationRepository extends AbstractWritableRepository impleme
                 return $query->where('id','!=', $id)->where('user_group_id', $userGroupId)->where('notification_id', $notificationId);
             })],
         ];
-    }//*/
+    }
+    //*/
     
 }
