@@ -3,11 +3,11 @@
 namespace Xolens\PgLarapoll\App\Model\View;
 use Illuminate\Database\Eloquent\Model;
 
-use PgLarapollCreateViewNotification;
+use PgLarapollCreateViewUserGroupInvestigation;
 
 
 
-class NotificationView extends Model
+class UserGroupInvestigationView extends Model
 {
     public $timestamps = false;
 
@@ -26,7 +26,7 @@ class NotificationView extends Model
     protected $table;
     
     function __construct(array $attributes = []) {
-        $this->table = PgLarapollCreateViewNotification::table();
+        $this->table = PgLarapollCreateViewUserGroupInvestigation::table();
         parent::__construct($attributes);
     }
 }

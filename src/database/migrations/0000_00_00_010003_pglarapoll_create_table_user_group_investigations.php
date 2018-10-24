@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\DB;
 
 use Xolens\PgLarapoll\App\Util\PgLarapollMigration;
 
-class PgLarapollCreateTableUserGroupNotifications extends PgLarapollMigration
+class PgLarapollCreateTableUserGroupInvestigations extends PgLarapollMigration
 {
     /**
      * Return table name
@@ -14,7 +14,7 @@ class PgLarapollCreateTableUserGroupNotifications extends PgLarapollMigration
      * @return string
      */
     public static function tableName(){
-        return 'user_group_notifications';
+        return 'user_group_investigations';
     }    
 
     /**
@@ -28,7 +28,7 @@ class PgLarapollCreateTableUserGroupNotifications extends PgLarapollMigration
             $table->increments('id');
             $table->string('state')->nullable();
             $table->integer('user_group_id')->index();
-            $table->integer('notification_id')->index();
+            $table->integer('investigation_id')->index();
         });
         if(self::logEnabled()){
             self::registerForLog();

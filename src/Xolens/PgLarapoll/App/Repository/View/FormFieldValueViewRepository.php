@@ -14,25 +14,25 @@ class FormFieldValueViewRepository extends AbstractReadableRepository implements
     public function model(){
         return FormFieldValueView::class;
     }
-     public function paginateByUserGroupNotification($parentId, $perPage=50, $page = null,  $columns = ['*'], $pageName = 'page'){
+     public function paginateByUserGroupInvestigation($parentId, $perPage=50, $page = null,  $columns = ['*'], $pageName = 'page'){
         $parentFilterer = new Filterer();
         $parentFilterer->equals(FormFieldValue::USER_GROUP_NOTIFICATION_PROPERTY, $parentId);
         return $this->paginateFiltered($parentFilterer, $perPage, $page,  $columns, $pageName);
      }
 
-     public function paginateByUserGroupNotificationSorted($parentId, Sorter $sorter, $perPage=50, $page = null,  $columns = ['*'], $pageName = 'page'){
+     public function paginateByUserGroupInvestigationSorted($parentId, Sorter $sorter, $perPage=50, $page = null,  $columns = ['*'], $pageName = 'page'){
         $parentFilterer = new Filterer();
         $parentFilterer->equals(FormFieldValue::USER_GROUP_NOTIFICATION_PROPERTY, $parentId);
         return $this->paginateSortedFiltered($sorter, $parentFilterer, $perPage, $page,  $columns, $pageName);
      }
 
-     public function paginateByUserGroupNotificationFiltered($parentId, Filterer $filterer, $perPage=50, $page = null,  $columns = ['*'], $pageName = 'page'){
+     public function paginateByUserGroupInvestigationFiltered($parentId, Filterer $filterer, $perPage=50, $page = null,  $columns = ['*'], $pageName = 'page'){
         $parentFilterer = new Filterer();
         $parentFilterer->equals(FormFieldValue::USER_GROUP_NOTIFICATION_PROPERTY, $parentId);
         return $this->paginateFiltered($parentFilterer, $perPage, $page,  $columns, $pageName);
      }
 
-     public function paginateByUserGroupNotificationSortedFiltered($parentId, Sorter $sorter, Filterer $filterer, $perPage=50, $page = null,  $columns = ['*'], $pageName = 'page'){
+     public function paginateByUserGroupInvestigationSortedFiltered($parentId, Sorter $sorter, Filterer $filterer, $perPage=50, $page = null,  $columns = ['*'], $pageName = 'page'){
         $parentFilterer = new Filterer();
         $parentFilterer->equals(FormFieldValue::USER_GROUP_NOTIFICATION_PROPERTY, $parentId);
         return $this->paginateSortedFiltered($sorter, $parentFilterer, $perPage, $page,  $columns, $pageName);

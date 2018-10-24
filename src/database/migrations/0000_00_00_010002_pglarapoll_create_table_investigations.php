@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\DB;
 
 use Xolens\PgLarapoll\App\Util\PgLarapollMigration;
 
-class PgLarapollCreateTableNotifications extends PgLarapollMigration
+class PgLarapollCreateTableInvestigations extends PgLarapollMigration
 {
     /**
      * Return table name
@@ -14,7 +14,7 @@ class PgLarapollCreateTableNotifications extends PgLarapollMigration
      * @return string
      */
     public static function tableName(){
-        return 'notifications';
+        return 'investigations';
     }    
 
     /**

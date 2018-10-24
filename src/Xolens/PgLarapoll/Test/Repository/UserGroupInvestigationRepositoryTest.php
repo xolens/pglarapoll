@@ -2,26 +2,26 @@
 
 namespace Xolens\PgLarapoll\Test\Repository;
 
-use Xolens\PgLarapoll\App\Repository\NotificationRepository;
-use Xolens\PgLarapoll\App\Repository\GroupRepository;
-use Xolens\PgLarapoll\App\Repository\FormRepository;
+use Xolens\PgLarapoll\App\Repository\UserGroupInvestigationRepository;
+use Xolens\PgLarapoll\App\Repository\UserGroupRepository;
+use Xolens\PgLarapoll\App\Repository\InvestigationRepository;
 use Xolens\LarautilContract\App\Util\Model\Sorter;
 use Xolens\LarautilContract\App\Util\Model\Filterer;
 use Xolens\PgLarapoll\Test\WritableTestPgLarapollBase;
 
-final class NotificationRepositoryTest extends WritableTestPgLarapollBase
+final class UserGroupInvestigationRepositoryTest extends WritableTestPgLarapollBase
 {
-    protected $groupRepo;
-    protected $formRepo;
+    protected $userGroupRepo;
+    protected $investigationRepo;
     /**
      * Setup the test environment.
      */
     protected function setUp(): void{
         parent::setUp();
         $this->artisan('migrate');
-        $repo = new NotificationRepository();
-        $this->groupRepo = new GroupRepository();
-        $this->formRepo = new FormRepository();
+        $repo = new UserGroupInvestigationRepository();
+        $this->userGroupRepo = new UserGroupRepository();
+        $this->investigationRepo = new InvestigationRepository();
         $this->repo = $repo;
     }
 
@@ -30,15 +30,12 @@ final class NotificationRepositoryTest extends WritableTestPgLarapollBase
      */
     public function test_make(){
         $i = rand(0, 10000);
-        $groupId = $this->groupRepo->model()::inRandomOrder()->first()->id;
-        $formId = $this->formRepo->model()::inRandomOrder()->first()->id;
+        $userGroupId = $this->userGroupRepo->model()::inRandomOrder()->first()->id;
+        $investigationId = $this->investigationRepo->model()::inRandomOrder()->first()->id;
         $item = $this->repository()->make([
-            'name' => 'name'.$i,
-            'title' => 'title'.$i,
-            'text' => 'text'.$i,
-            'type' => 'type'.$i,
-            'group_id' => $groupId,
-            'form_id' => $formId,
+            'state' => 'state'.$i,
+            'user_group_id' => $userGroupId,
+            'investigation_id' => $investigationId,
         ]);
         $this->assertTrue(true);
     }
@@ -62,15 +59,12 @@ final class NotificationRepositoryTest extends WritableTestPgLarapollBase
         $generatedItemsId = [];
         
         for($i=$count; $i<($toGenerateCount+$count); $i++){
-            $groupId = $this->groupRepo->model()::inRandomOrder()->first()->id;
-            $formId = $this->formRepo->model()::inRandomOrder()->first()->id;
+            $userGroupId = $this->userGroupRepo->model()::inRandomOrder()->first()->id;
+            $investigationId = $this->investigationRepo->model()::inRandomOrder()->first()->id;
             $item = $this->repository()->create([
-                'name' => 'name'.$i,
-                'title' => 'title'.$i,
-                'text' => 'text'.$i,
-                'type' => 'type'.$i,
-                'group_id' => $groupId,
-                'form_id' => $formId,
+                'state' => 'state'.$i,
+                'user_group_id' => $userGroupId,
+                'investigation_id' => $investigationId,
             ]);
             $generatedItemsId[] = $item->response()->id;
         }

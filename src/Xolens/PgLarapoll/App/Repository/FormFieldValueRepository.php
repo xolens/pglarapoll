@@ -16,11 +16,11 @@ class FormFieldValueRepository extends AbstractWritableRepository implements For
     /*
     public function validationRules(array $data){
         $id = self::get($data,'id');
-        $userGroupNotificationId = self::get($data,'user_group_notification_id');
+        $userGroupInvestigationId = self::get($data,'user_group_investigation_id');
         $formFieldId = self::get($data,'form_field_id');
         return [
-            'id' => ['required',Rule::unique(PgLarapollCreateTableFormFieldValues::table())->where(function ($query) use($id, $userGroupNotificationId, $formFieldId) {
-                return $query->where('id','!=', $id)->where('user_group_notification_id', $userGroupNotificationId)->where('form_field_id', $formFieldId);
+            'id' => ['required',Rule::unique(PgLarapollCreateTableFormFieldValues::table())->where(function ($query) use($id, $userGroupInvestigationId, $formFieldId) {
+                return $query->where('id','!=', $id)->where('user_group_investigation_id', $userGroupInvestigationId)->where('form_field_id', $formFieldId);
             })],
         ];
     }

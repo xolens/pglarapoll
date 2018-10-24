@@ -3,10 +3,10 @@
 namespace Xolens\PgLarapoll\App\Model;
 use Illuminate\Database\Eloquent\Model;
 
-use PgLarapollCreateTableNotifications;
+use PgLarapollCreateTableInvestigations;
 
 
-class Notification extends Model
+class Investigation extends Model
 {
     public const GROUP_PROPERTY = 'group_id';
     public const FORM_PROPERTY = 'form_id';
@@ -30,7 +30,7 @@ class Notification extends Model
     protected $table;
     
     function __construct(array $attributes = []) {
-        $this->table = PgLarapollCreateTableNotifications::table();
+        $this->table = PgLarapollCreateTableInvestigations::table();
         parent::__construct($attributes);
     }
 

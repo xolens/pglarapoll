@@ -26,7 +26,7 @@ class PglarapollCreateFunctionCreateSelectFormValuesQuery extends PgLarapollMigr
             RETURNS text AS
             $$
             DECLARE
-            query  text = 'user_group_notification_id integer';          
+            query  text = 'user_group_investigation_id integer';          
             temprow record;
             BEGIN
                 FOR temprow IN

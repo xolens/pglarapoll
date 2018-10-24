@@ -2,12 +2,12 @@
 
 namespace Xolens\PgLarapoll\Test\Repository\View;
 
-use Xolens\PgLarapoll\App\Repository\View\NotificationViewRepository;
+use Xolens\PgLarapoll\App\Repository\View\UserGroupInvestigationViewRepository;
 use Xolens\LarautilContract\App\Util\Model\Sorter;
 use Xolens\LarautilContract\App\Util\Model\Filterer;
 use Xolens\PgLarapoll\Test\ReadOnlyTestPgLarapollBase;
 
-final class NotificationViewRepositoryTest extends ReadOnlyTestPgLarapollBase
+final class UserGroupInvestigationViewRepositoryTest extends ReadOnlyTestPgLarapollBase
 {
     /**
      * Setup the test environment.
@@ -15,7 +15,7 @@ final class NotificationViewRepositoryTest extends ReadOnlyTestPgLarapollBase
     protected function setUp(): void{
         parent::setUp();
         $this->artisan('migrate');
-        $repo = new NotificationViewRepository();
+        $repo = new UserGroupInvestigationViewRepository();
         $this->repo = $repo;
     }
 

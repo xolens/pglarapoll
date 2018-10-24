@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\DB;
 use Xolens\PgLarapoll\App\Util\PgLarapollMigration;
 
-class PgLarapollCreateViewUserGroupNotification extends PgLarapollMigration
+class PgLarapollCreateViewUserGroupInvestigation extends PgLarapollMigration
 {
     /**
      * Return table name
@@ -11,7 +11,7 @@ class PgLarapollCreateViewUserGroupNotification extends PgLarapollMigration
      * @return string
      */
     public static function tableName(){
-        return 'user_group_notification_view';
+        return 'user_group_investigation_view';
     }    
 
     /**
@@ -21,17 +21,17 @@ class PgLarapollCreateViewUserGroupNotification extends PgLarapollMigration
      */
     public function up()
     {
-        $mainTable = PgLarapollCreateTableUserGroupNotifications::table();
-        $notificationTable = PgLarapollCreateTableNotifications::table();
+        $mainTable = PgLarapollCreateTableUserGroupInvestigations::table();
+        $investigationTable = PgLarapollCreateTableInvestigations::table();
         $userGroupTable = PgLarapollCreateTableUserGroups::table();
         DB::statement("
             CREATE VIEW ".self::table()." AS(
                 SELECT 
                     ".$mainTable.".*,
-                    ".$notificationTable.".name as notification_name,
-                    ".$notificationTable.".title as notification_title
+                    ".$investigationTable.".name as investigation_name,
+                    ".$investigationTable.".title as investigation_title
                 FROM ".$mainTable." 
-                    LEFT JOIN ".$notificationTable." ON ".$notificationTable.".id = ".$mainTable.".notification_id
+                    LEFT JOIN ".$investigationTable." ON ".$investigationTable.".id = ".$mainTable.".investigation_id
                     LEFT JOIN ".$userGroupTable." ON ".$userGroupTable.".id = ".$mainTable.".user_group_id
             )
         ");

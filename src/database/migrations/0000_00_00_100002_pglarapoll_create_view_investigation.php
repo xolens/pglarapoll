@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\DB;
 use Xolens\PgLarapoll\App\Util\PgLarapollMigration;
 
-class PgLarapollCreateViewNotification extends PgLarapollMigration
+class PgLarapollCreateViewInvestigation extends PgLarapollMigration
 {
     /**
      * Return table name
@@ -11,7 +11,7 @@ class PgLarapollCreateViewNotification extends PgLarapollMigration
      * @return string
      */
     public static function tableName(){
-        return 'notification_view';
+        return 'investigation_view';
     }    
 
     /**
@@ -21,7 +21,7 @@ class PgLarapollCreateViewNotification extends PgLarapollMigration
      */
     public function up()
     {
-        $mainTable = PgLarapollCreateTableNotifications::table();
+        $mainTable = PgLarapollCreateTableInvestigations::table();
         $groupTable = PgLarapollCreateTableGroups::table();
         $formTable = PgLarapollCreateTableForms::table();
         DB::statement("

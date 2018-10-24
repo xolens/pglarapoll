@@ -54,17 +54,17 @@ class PgLarapollCreateFunctionSelectFormValues extends PgLarapollMigration
                 LOOP
                     selectors := selectors || ',' || ltab1 || subselect_prefix || loopIndex || '.value as ' || temprow.field_name;
                     joins := joins || joins_separator || 
-                        '(SELECT value, user_group_notification_id from ".PgLarapollCreateTableFormFieldValues::table()." where form_field_id in (select id from ".PgLarapollCreateTableFormFields::table()." where form_id = ' || $1 || ' and field_id = ' || temprow.field_id ||'))' 
+                        '(SELECT value, user_group_investigation_id from ".PgLarapollCreateTableFormFieldValues::table()." where form_field_id in (select id from ".PgLarapollCreateTableFormFields::table()." where form_id = ' || $1 || ' and field_id = ' || temprow.field_id ||'))' 
                         || ' as ' || subselect_prefix || loopIndex || using_stm;
                     
                     joins_separator := ltab1 || 'FULL JOIN ';
-                    using_stm := ' using (user_group_notification_id)';
+                    using_stm := ' using (user_group_investigation_id)';
                     loopIndex := loopIndex+1;
                 END LOOP;
 
                 IF FOUND THEN
-                    -- RETURN 'SELECT' || ltab1 || 'selection1.user_group_notification_id' ||selectors || newl || ' FROM ' || ltab1 || joins || ';';
-                    RETURN QUERY EXECUTE 'SELECT' || ltab1 || 'selection1.user_group_notification_id' ||selectors || newl || ' FROM ' || ltab1 || joins || ';';
+                    -- RETURN 'SELECT' || ltab1 || 'selection1.user_group_investigation_id' ||selectors || newl || ' FROM ' || ltab1 || joins || ';';
+                    RETURN QUERY EXECUTE 'SELECT' || ltab1 || 'selection1.user_group_investigation_id' ||selectors || newl || ' FROM ' || ltab1 || joins || ';';
                 END IF;
             
                 --RETURN 'NOT FOUND !';

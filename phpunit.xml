@@ -22,9 +22,9 @@
             <file>src/Xolens/PgLarapoll/Test/Repository/UserRepositoryTest.php</file>
             <file>src/Xolens/PgLarapoll/Test/Repository/FormRepositoryTest.php</file>
             <file>src/Xolens/PgLarapoll/Test/Repository/FormFieldRepositoryTest.php</file>
-            <file>src/Xolens/PgLarapoll/Test/Repository/NotificationRepositoryTest.php</file>
+            <file>src/Xolens/PgLarapoll/Test/Repository/InvestigationRepositoryTest.php</file>
             <file>src/Xolens/PgLarapoll/Test/Repository/UserGroupRepositoryTest.php</file>
-            <file>src/Xolens/PgLarapoll/Test/Repository/UserGroupNotificationRepositoryTest.php</file>
+            <file>src/Xolens/PgLarapoll/Test/Repository/UserGroupInvestigationRepositoryTest.php</file>
             <file>src/Xolens/PgLarapoll/Test/Repository/FormFieldValueRepositoryTest.php</file>
         </testsuite>
         <testsuite name="test-packageview">
@@ -33,9 +33,9 @@
             <file>src/Xolens/PgLarapoll/Test/Repository/View/UserViewRepositoryTest.php</file>
             <file>src/Xolens/PgLarapoll/Test/Repository/View/FormViewRepositoryTest.php</file>
             <file>src/Xolens/PgLarapoll/Test/Repository/View/FormFieldViewRepositoryTest.php</file>
-            <file>src/Xolens/PgLarapoll/Test/Repository/View/NotificationViewRepositoryTest.php</file>
+            <file>src/Xolens/PgLarapoll/Test/Repository/View/InvestigationViewRepositoryTest.php</file>
             <file>src/Xolens/PgLarapoll/Test/Repository/View/UserGroupViewRepositoryTest.php</file>
-            <file>src/Xolens/PgLarapoll/Test/Repository/View/UserGroupNotificationViewRepositoryTest.php</file>
+            <file>src/Xolens/PgLarapoll/Test/Repository/View/UserGroupInvestigationViewRepositoryTest.php</file>
             <file>src/Xolens/PgLarapoll/Test/Repository/View/FormFieldValueViewRepositoryTest.php</file>
         </testsuite> 
     </testsuites>
