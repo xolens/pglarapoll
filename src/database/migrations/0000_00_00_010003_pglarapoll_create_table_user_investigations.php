@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\DB;
 
 use Xolens\PgLarapoll\App\Util\PgLarapollMigration;
 
-class PgLarapollCreateTableUserGroupInvestigations extends PgLarapollMigration
+class PgLarapollCreateTableUserInvestigations extends PgLarapollMigration
 {
     /**
      * Return table name
@@ -14,7 +14,7 @@ class PgLarapollCreateTableUserGroupInvestigations extends PgLarapollMigration
      * @return string
      */
     public static function tableName(){
-        return 'user_group_investigations';
+        return 'user_investigations';
     }    
 
     /**
@@ -26,8 +26,13 @@ class PgLarapollCreateTableUserGroupInvestigations extends PgLarapollMigration
     {
         Schema::create(self::table(), function (Blueprint $table) {
             $table->increments('id');
-            $table->string('state')->nullable();
-            $table->integer('user_group_id')->index();
+            $table->enum('state',['CREATED','SEND','SUBMITED', 'UPDATED', 'VALIDATED']);
+            $table->timestamp('create_time');
+            $table->timestamp('send_time')->nullable();
+            $table->timestamp('submit_time')->nullable();
+            $table->timestamp('update_time')->nullable();
+            $table->timestamp('validation_time')->nullable();
+            $table->integer('user_id')->index();
             $table->integer('investigation_id')->index();
         });
         if(self::logEnabled()){

@@ -31,7 +31,7 @@ class PgLarapollCreateTableInvestigations extends PgLarapollMigration
             $table->string('text');
             $table->string('type');
             $table->integer('group_id')->index();
-            $table->integer('form_id')->index();
+            $table->integer('form_id')->index()->nullable();
         });
         if(self::logEnabled()){
             self::registerForLog();

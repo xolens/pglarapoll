@@ -3,13 +3,13 @@
 namespace Xolens\PgLarapoll\App\Model;
 use Illuminate\Database\Eloquent\Model;
 
-use PgLarapollCreateTableUserGroupInvestigations;
+use PgLarapollCreateTableUserInvestigations;
 
 
-class UserGroupInvestigation extends Model
+class UserInvestigation extends Model
 {
-    public const USER_GROUP_PROPERTY = 'user_group_id';
-    public const NOTIFICATION_PROPERTY = 'investigation_id';
+    public const INVESTIGATION_PROPERTY = 'investigation_id';
+    public const USER_PROPERTY = 'user_id';
 
     public $timestamps = false;
 
@@ -19,7 +19,7 @@ class UserGroupInvestigation extends Model
      * @var array
      */
     protected $fillable = [
-        'id', 'state', 'user_group_id', 'investigation_id', 
+        'id', 'state', 'create_time', 'send_time', 'submit_time', 'update_time', 'validation_time','investigation_id', 'user_id', 
     ];
 
     /**
@@ -30,15 +30,15 @@ class UserGroupInvestigation extends Model
     protected $table;
     
     function __construct(array $attributes = []) {
-        $this->table = PgLarapollCreateTableUserGroupInvestigations::table();
+        $this->table = PgLarapollCreateTableUserInvestigations::table();
         parent::__construct($attributes);
     }
 
-    public function userGroup(){
-        return $this->belongsTo('Xolens\PgLarapoll\App\Model\UserGroup','user_group_id');
-    } 
-
     public function investigation(){
         return $this->belongsTo('Xolens\PgLarapoll\App\Model\Investigation','investigation_id');
+    } 
+
+    public function user(){
+        return $this->belongsTo('Xolens\PgLarapoll\App\Model\User','user_id');
     } 
 }

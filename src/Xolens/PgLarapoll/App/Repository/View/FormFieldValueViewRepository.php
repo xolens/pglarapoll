@@ -14,27 +14,29 @@ class FormFieldValueViewRepository extends AbstractReadableRepository implements
     public function model(){
         return FormFieldValueView::class;
     }
-     public function paginateByUserGroupInvestigation($parentId, $perPage=50, $page = null,  $columns = ['*'], $pageName = 'page'){
+     public function paginateByUserInvestigation($parentId, $perPage=50, $page = null,  $columns = ['*'], $pageName = 'page'){
         $parentFilterer = new Filterer();
-        $parentFilterer->equals(FormFieldValue::USER_GROUP_NOTIFICATION_PROPERTY, $parentId);
+        $parentFilterer->equals(FormFieldValue::USER_INVESTIGATION_PROPERTY, $parentId);
         return $this->paginateFiltered($parentFilterer, $perPage, $page,  $columns, $pageName);
      }
 
-     public function paginateByUserGroupInvestigationSorted($parentId, Sorter $sorter, $perPage=50, $page = null,  $columns = ['*'], $pageName = 'page'){
+     public function paginateByUserInvestigationSorted($parentId, Sorter $sorter, $perPage=50, $page = null,  $columns = ['*'], $pageName = 'page'){
         $parentFilterer = new Filterer();
-        $parentFilterer->equals(FormFieldValue::USER_GROUP_NOTIFICATION_PROPERTY, $parentId);
+        $parentFilterer->equals(FormFieldValue::USER_INVESTIGATION_PROPERTY, $parentId);
         return $this->paginateSortedFiltered($sorter, $parentFilterer, $perPage, $page,  $columns, $pageName);
      }
 
-     public function paginateByUserGroupInvestigationFiltered($parentId, Filterer $filterer, $perPage=50, $page = null,  $columns = ['*'], $pageName = 'page'){
+     public function paginateByUserInvestigationFiltered($parentId, Filterer $filterer, $perPage=50, $page = null,  $columns = ['*'], $pageName = 'page'){
         $parentFilterer = new Filterer();
-        $parentFilterer->equals(FormFieldValue::USER_GROUP_NOTIFICATION_PROPERTY, $parentId);
+        $parentFilterer->equals(FormFieldValue::USER_INVESTIGATION_PROPERTY, $parentId);
+        $parentFilterer->and($filterer);
         return $this->paginateFiltered($parentFilterer, $perPage, $page,  $columns, $pageName);
      }
 
-     public function paginateByUserGroupInvestigationSortedFiltered($parentId, Sorter $sorter, Filterer $filterer, $perPage=50, $page = null,  $columns = ['*'], $pageName = 'page'){
+     public function paginateByUserInvestigationSortedFiltered($parentId, Sorter $sorter, Filterer $filterer, $perPage=50, $page = null,  $columns = ['*'], $pageName = 'page'){
         $parentFilterer = new Filterer();
-        $parentFilterer->equals(FormFieldValue::USER_GROUP_NOTIFICATION_PROPERTY, $parentId);
+        $parentFilterer->equals(FormFieldValue::USER_INVESTIGATION_PROPERTY, $parentId);
+        $parentFilterer->and($filterer);
         return $this->paginateSortedFiltered($sorter, $parentFilterer, $perPage, $page,  $columns, $pageName);
      }
 
@@ -53,12 +55,14 @@ class FormFieldValueViewRepository extends AbstractReadableRepository implements
      public function paginateByFormFieldFiltered($parentId, Filterer $filterer, $perPage=50, $page = null,  $columns = ['*'], $pageName = 'page'){
         $parentFilterer = new Filterer();
         $parentFilterer->equals(FormFieldValue::FORM_FIELD_PROPERTY, $parentId);
+        $parentFilterer->and($filterer);
         return $this->paginateFiltered($parentFilterer, $perPage, $page,  $columns, $pageName);
      }
 
      public function paginateByFormFieldSortedFiltered($parentId, Sorter $sorter, Filterer $filterer, $perPage=50, $page = null,  $columns = ['*'], $pageName = 'page'){
         $parentFilterer = new Filterer();
         $parentFilterer->equals(FormFieldValue::FORM_FIELD_PROPERTY, $parentId);
+        $parentFilterer->and($filterer);
         return $this->paginateSortedFiltered($sorter, $parentFilterer, $perPage, $page,  $columns, $pageName);
      }
 

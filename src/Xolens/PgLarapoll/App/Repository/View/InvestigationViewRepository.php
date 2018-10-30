@@ -29,12 +29,14 @@ class InvestigationViewRepository extends AbstractReadableRepository implements 
      public function paginateByGroupFiltered($parentId, Filterer $filterer, $perPage=50, $page = null,  $columns = ['*'], $pageName = 'page'){
         $parentFilterer = new Filterer();
         $parentFilterer->equals(Investigation::GROUP_PROPERTY, $parentId);
+        $parentFilterer->and($filterer);
         return $this->paginateFiltered($parentFilterer, $perPage, $page,  $columns, $pageName);
      }
 
      public function paginateByGroupSortedFiltered($parentId, Sorter $sorter, Filterer $filterer, $perPage=50, $page = null,  $columns = ['*'], $pageName = 'page'){
         $parentFilterer = new Filterer();
         $parentFilterer->equals(Investigation::GROUP_PROPERTY, $parentId);
+        $parentFilterer->and($filterer);
         return $this->paginateSortedFiltered($sorter, $parentFilterer, $perPage, $page,  $columns, $pageName);
      }
 
@@ -53,12 +55,14 @@ class InvestigationViewRepository extends AbstractReadableRepository implements 
      public function paginateByFormFiltered($parentId, Filterer $filterer, $perPage=50, $page = null,  $columns = ['*'], $pageName = 'page'){
         $parentFilterer = new Filterer();
         $parentFilterer->equals(Investigation::FORM_PROPERTY, $parentId);
+        $parentFilterer->and($filterer);
         return $this->paginateFiltered($parentFilterer, $perPage, $page,  $columns, $pageName);
      }
 
      public function paginateByFormSortedFiltered($parentId, Sorter $sorter, Filterer $filterer, $perPage=50, $page = null,  $columns = ['*'], $pageName = 'page'){
         $parentFilterer = new Filterer();
         $parentFilterer->equals(Investigation::FORM_PROPERTY, $parentId);
+        $parentFilterer->and($filterer);
         return $this->paginateSortedFiltered($sorter, $parentFilterer, $perPage, $page,  $columns, $pageName);
      }
 

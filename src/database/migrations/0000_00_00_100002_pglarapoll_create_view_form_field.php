@@ -28,8 +28,14 @@ class PgLarapollCreateViewFormField extends PgLarapollMigration
             CREATE VIEW ".self::table()." AS(
                 SELECT 
                     ".$mainTable.".*,
+                    CONCAT('field_',".$fieldTable.".id) as field_identifier,
                     ".$fieldTable.".name as field_name,
-                    ".$formTable.".name as form_name
+                    ".$fieldTable.".type as field_type,
+                    ".$fieldTable.".required as field_required,
+                    ".$fieldTable.".value_list as field_value_list,
+                    ".$fieldTable.".description as field_description,
+                    ".$formTable.".name as form_name,
+                    ".$formTable.".description as form_description
                 FROM ".$mainTable." 
                     LEFT JOIN ".$fieldTable." ON ".$fieldTable.".id = ".$mainTable.".field_id
                     LEFT JOIN ".$formTable." ON ".$formTable.".id = ".$mainTable.".form_id

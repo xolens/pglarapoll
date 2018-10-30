@@ -27,7 +27,6 @@ final class FieldRepositoryTest extends WritableTestPgLarapollBase
         $item = $this->repository()->make([
             'type' => 'type'.$i,
             'name' => 'name'.$i,
-            'label' => 'label'.$i,
             'required' => 'required'.$i,
             'value_list' => 'valueList'.$i,
             'description' => 'description'.$i,
@@ -57,7 +56,6 @@ final class FieldRepositoryTest extends WritableTestPgLarapollBase
             $item = $this->repository()->create([
                 'type' => 'type'.$i,
                 'name' => 'name'.$i,
-                'label' => 'label'.$i,
                 'required' => $i%2==0,
                 'value_list' => 'valueList'.$i,
                 'description' => 'description'.$i,

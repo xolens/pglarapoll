@@ -28,7 +28,6 @@ class PgLarapollCreateTableFields extends PgLarapollMigration
             $table->increments('id');
             $table->string('type')->nullable();
             $table->string('name')->unique();
-            $table->string('label');
             $table->boolean('required');
             $table->text('value_list')->nullable();
             $table->text('description')->nullable();

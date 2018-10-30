@@ -8,7 +8,7 @@ use PgLarapollCreateTableFormFieldValues;
 
 class FormFieldValue extends Model
 {
-    public const USER_GROUP_NOTIFICATION_PROPERTY = 'user_group_investigation_id';
+    public const USER_INVESTIGATION_PROPERTY = 'user_investigation_id';
     public const FORM_FIELD_PROPERTY = 'form_field_id';
 
     public $timestamps = false;
@@ -19,7 +19,7 @@ class FormFieldValue extends Model
      * @var array
      */
     protected $fillable = [
-        'id', 'value', 'user_group_investigation_id', 'form_field_id', 
+        'id', 'value', 'user_investigation_id', 'form_field_id', 
     ];
 
     /**
@@ -34,8 +34,8 @@ class FormFieldValue extends Model
         parent::__construct($attributes);
     }
 
-    public function userGroupInvestigation(){
-        return $this->belongsTo('Xolens\PgLarapoll\App\Model\UserGroupInvestigation','user_group_investigation_id');
+    public function userInvestigation(){
+        return $this->belongsTo('Xolens\PgLarapoll\App\Model\UserInvestigation','user_investigation_id');
     } 
 
     public function formField(){

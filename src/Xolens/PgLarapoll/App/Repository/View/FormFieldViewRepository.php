@@ -29,12 +29,14 @@ class FormFieldViewRepository extends AbstractReadableRepository implements Form
      public function paginateByFormFiltered($parentId, Filterer $filterer, $perPage=50, $page = null,  $columns = ['*'], $pageName = 'page'){
         $parentFilterer = new Filterer();
         $parentFilterer->equals(FormField::FORM_PROPERTY, $parentId);
+        $parentFilterer->and($filterer);
         return $this->paginateFiltered($parentFilterer, $perPage, $page,  $columns, $pageName);
      }
 
      public function paginateByFormSortedFiltered($parentId, Sorter $sorter, Filterer $filterer, $perPage=50, $page = null,  $columns = ['*'], $pageName = 'page'){
         $parentFilterer = new Filterer();
         $parentFilterer->equals(FormField::FORM_PROPERTY, $parentId);
+        $parentFilterer->and($filterer);
         return $this->paginateSortedFiltered($sorter, $parentFilterer, $perPage, $page,  $columns, $pageName);
      }
 
@@ -53,12 +55,14 @@ class FormFieldViewRepository extends AbstractReadableRepository implements Form
      public function paginateByFieldFiltered($parentId, Filterer $filterer, $perPage=50, $page = null,  $columns = ['*'], $pageName = 'page'){
         $parentFilterer = new Filterer();
         $parentFilterer->equals(FormField::FIELD_PROPERTY, $parentId);
+        $parentFilterer->and($filterer);
         return $this->paginateFiltered($parentFilterer, $perPage, $page,  $columns, $pageName);
      }
 
      public function paginateByFieldSortedFiltered($parentId, Sorter $sorter, Filterer $filterer, $perPage=50, $page = null,  $columns = ['*'], $pageName = 'page'){
         $parentFilterer = new Filterer();
         $parentFilterer->equals(FormField::FIELD_PROPERTY, $parentId);
+        $parentFilterer->and($filterer);
         return $this->paginateSortedFiltered($sorter, $parentFilterer, $perPage, $page,  $columns, $pageName);
      }
 

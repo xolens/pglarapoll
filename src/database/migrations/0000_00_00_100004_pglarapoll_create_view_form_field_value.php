@@ -23,14 +23,16 @@ class PgLarapollCreateViewFormFieldValue extends PgLarapollMigration
     {
         $mainTable = PgLarapollCreateTableFormFieldValues::table();
         $formFieldTable = PgLarapollCreateTableFormFields::table();
-        $userGroupInvestigationTable = PgLarapollCreateTableUserGroupInvestigations::table();
+        $userInvestigationTable = PgLarapollCreateTableUserInvestigations::table();
         DB::statement("
             CREATE VIEW ".self::table()." AS(
                 SELECT 
-                    ".$mainTable.".*
+                    ".$mainTable.".*,
+                    ".$formFieldTable.".field_position,
+                    ".$formFieldTable.".form_id,
+                    ".$formFieldTable.".field_id
                 FROM ".$mainTable." 
                     LEFT JOIN ".$formFieldTable." ON ".$formFieldTable.".id = ".$mainTable.".form_field_id
-                    LEFT JOIN ".$userGroupInvestigationTable." ON ".$userGroupInvestigationTable.".id = ".$mainTable.".user_group_investigation_id
             )
         ");
     }
