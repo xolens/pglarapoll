@@ -28,7 +28,7 @@ class PglarapollCreateTriggerInvestigationChanges extends PgLarapollMigration
                 BEGIN
                     IF TG_OP = 'INSERT' THEN
                         INSERT INTO ".PgLarapollCreateTableUserInvestigations::table()."(state, create_time, user_id,investigation_id)
-                        SELECT 'CREATED', NOW(), id, NEW.id from ".PgLarapollCreateTableUserGroups::table()." where group_id=NEW.group_id;
+                        SELECT 'CREATED', NOW(), id, NEW.id from ".PgLarapollCreateTableUsers::table()." where group_id=NEW.group_id;
                     ELSEIF TG_OP = 'UPDATE' THEN
                         NEW.group_id = OLD.group_id;
                     ELSEIF TG_OP = 'DELETE' THEN

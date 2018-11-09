@@ -8,6 +8,7 @@ use PgLarapollCreateTableUsers;
 
 class User extends Model
 {
+    public const GROUP_PROPERTY = 'group_id';
 
     public $timestamps = false;
 
@@ -17,7 +18,7 @@ class User extends Model
      * @var array
      */
     protected $fillable = [
-        'id', 'name', 'email', 'phone', 'category', 
+        'id', 'name', 'email', 'phone', 'category', 'gender', 'group_id',
     ];
 
     /**

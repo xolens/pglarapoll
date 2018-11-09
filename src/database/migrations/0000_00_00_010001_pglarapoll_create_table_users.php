@@ -27,9 +27,12 @@ class PgLarapollCreateTableUsers extends PgLarapollMigration
         Schema::create(self::table(), function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('email')->unique();
-            $table->string('phone')->unique();
+            $table->string('email');
+            $table->string('phone');
+            $table->string('gender');
             $table->string('category')->nullable();
+            $table->integer('group_id')->index();
+            $table->unique(['email','group_id']);
         });
         if(self::logEnabled()){
             self::registerForLog();

@@ -11,7 +11,7 @@ use Xolens\LarautilContract\App\Util\Model\Sorter;
 use Xolens\LarautilContract\App\Util\Model\Filterer;
 use PglarapollCreateFunctionCreateSelectInvestigationValuesQuery;
 
-class InvestigationService implements InvestigationServiceContract{
+class InvestigationService {
         
     public static function paginateValue($investId, $perPage, $page, $orderProperty, $orderDirection, $likePatern = '%'){
         $result = PglarapollCreateFunctionCreateSelectInvestigationValuesQuery::executeInvestigationValuesQuery($investId, $perPage, $page, $orderProperty, $orderDirection, $likePatern);
