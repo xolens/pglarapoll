@@ -26,7 +26,7 @@ class PgLarapollCreateTableUserInvestigations extends PgLarapollMigration
     {
         Schema::create(self::table(), function (Blueprint $table) {
             $table->increments('id');
-            $table->enum('state',['CREATED','SEND','SUBMITED', 'UPDATED', 'VALIDATED']);
+            $table->enum('state',['CREATED','FAILED','SEND','SUBMITED', 'UPDATED', 'VALIDATED']);
             $table->timestamp('create_time');
             $table->timestamp('send_time')->nullable();
             $table->timestamp('submit_time')->nullable();
