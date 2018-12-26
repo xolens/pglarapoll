@@ -28,7 +28,7 @@ class PgLarapollCreateTableInvestigations extends PgLarapollMigration
             $table->increments('id');
             $table->string('name')->unique();
             $table->string('title');
-            $table->string('text');
+            $table->text('text');
             $table->string('type');
             $table->integer('group_id')->index();
             $table->integer('form_id')->index()->nullable();

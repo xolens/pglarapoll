@@ -26,8 +26,9 @@ class PgLarapollCreateTableFields extends PgLarapollMigration
     {
         Schema::create(self::table(), function (Blueprint $table) {
             $table->increments('id');
-            $table->string('type')->nullable();
             $table->string('name')->unique();
+            $table->string('display_text');
+            $table->enum('type',['Integer', 'Number', 'Boolean', 'String', 'Time', 'Date', 'Select',]);  
             $table->boolean('required');
             $table->text('value_list')->nullable();
             $table->text('description')->nullable();

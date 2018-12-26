@@ -17,7 +17,7 @@ class Field extends Model
      * @var array
      */
     protected $fillable = [
-        'id', 'type', 'name', 'required', 'value_list', 'description', 
+        'id', 'type', 'name', 'display_text', 'required', 'value_list', 'description', 
     ];
 
     /**
