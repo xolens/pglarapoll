@@ -51,7 +51,7 @@ class PglarapollCreateTriggerInvestigationChanges extends PgLarapollMigration
      * @return void
      */
     public function down(){
-        DB::unprepared("DROP TRIGGER ".self::table()." ON acces_groupes;");
+        DB::unprepared("DROP TRIGGER ".self::table()." ON ".PgLarapollCreateTableInvestigations::table().";");
     }
 }
 
