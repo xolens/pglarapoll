@@ -28,7 +28,7 @@ class PgLarapollCreateTableFields extends PgLarapollMigration
             $table->increments('id');
             $table->string('name')->unique();
             $table->string('display_text');
-            $table->enum('type',['Integer', 'Number', 'Boolean', 'String', 'Time', 'Date', 'Select',]);  
+            $table->enum('type',['Integer', 'Number', 'Boolean', 'String', 'Date', 'Select',]);  
             $table->boolean('required');
             $table->text('value_list')->nullable();
             $table->text('description')->nullable();

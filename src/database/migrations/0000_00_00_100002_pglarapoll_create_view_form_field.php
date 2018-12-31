@@ -30,6 +30,7 @@ class PgLarapollCreateViewFormField extends PgLarapollMigration
                     ".$mainTable.".*,
                     CONCAT('field_',".$fieldTable.".id) as field_identifier,
                     ".$fieldTable.".name as field_name,
+                    ".$fieldTable.".display_text as field_display_text,
                     ".$fieldTable.".type as field_type,
                     ".$fieldTable.".required as field_required,
                     ".$fieldTable.".value_list as field_value_list,

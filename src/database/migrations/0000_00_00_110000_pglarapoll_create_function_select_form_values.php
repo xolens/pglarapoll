@@ -51,8 +51,9 @@ class PgLarapollCreateFunctionSelectFormValues extends PgLarapollMigration
                     from
                     (select * from ".PgLarapollCreateTableFormFields::table()." where form_id = $1) as form_fields
                     left join ".PgLarapollCreateTableFields::table()." on form_fields.field_id = ".PgLarapollCreateTableFields::table().".id
+                    order by field_id
                 LOOP
-                    selectors := selectors || ',' || ltab1 || subselect_prefix || loopIndex || '.value as ' || temprow.field_name;
+                    selectors := selectors || ',' || ltab1 || subselect_prefix || loopIndex || '.value as \"' || temprow.field_name || '\"';
                     joins := joins || joins_separator || 
                         '(SELECT value, user_investigation_id from ".PgLarapollCreateTableFormFieldValues::table()." where form_field_id in (select id from ".PgLarapollCreateTableFormFields::table()." where form_id = ' || $1 || ' and field_id = ' || temprow.field_id ||'))' 
                         || ' as ' || subselect_prefix || loopIndex || using_stm;

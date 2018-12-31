@@ -42,9 +42,10 @@ class PglarapollCreateFunctionCreateSelectInvestigationValuesQuery extends PgLar
                 investigation_values
                 JOIN '.PgLarapollCreateTableUserInvestigations::table().' ON investigation_values.user_investigation_id =  '.PgLarapollCreateTableUserInvestigations::table().'.id
                 JOIN '.PgLarapollCreateTableUsers::table().' ON '.PgLarapollCreateTableUsers::table().'.id =  '.PgLarapollCreateTableUserInvestigations::table().'.user_id
+                WHERE '.PgLarapollCreateTableUserInvestigations::table().'.investigation_id = ?
                 ORDER BY '.$orderProperty.' '.$orderDirection.'
                 LIMIT ? OFFSET ? 
-            '),[$perPage, ($page-1)*$perPage]);
+            '),[$investId, $perPage, ($page-1)*$perPage]);
             return $result;
         }
         return [];
@@ -81,8 +82,9 @@ class PglarapollCreateFunctionCreateSelectInvestigationValuesQuery extends PgLar
                     ".PgLarapollCreateTableFields::table().".id as field_id,
                     ".PgLarapollCreateTableFields::table().".name as field_name
                     from
-                    (select * from ".PgLarapollCreateTableFormFields::table()." where form_id = (select form_id from current_investigation)) as form_fields
+                    (select * from ".PgLarapollCreateTableFormFields::table()." where form_id IN (select form_id from current_investigation)) as form_fields
                     left join ".PgLarapollCreateTableFields::table()." on form_fields.field_id = ".PgLarapollCreateTableFields::table().".id
+                    order by field_id
                 LOOP
                     query := query || ', ' || CONCAT('field_', temprow.field_id) || ' text';
                 END LOOP;
