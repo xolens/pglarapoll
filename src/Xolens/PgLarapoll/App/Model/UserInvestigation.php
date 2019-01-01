@@ -19,9 +19,17 @@ class UserInvestigation extends Model
      * @var array
      */
     protected $fillable = [
-        'id', 'state', 'create_time', 'send_time', 'submit_time', 'update_time', 'validation_time','investigation_id', 'user_id', 
+        'id','auth_code', 'state', 'create_time', 'send_time', 'submit_time', 'update_time', 'validation_time','investigation_id', 'user_id', 
     ];
 
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'auth_code',
+    ];
     /**
      * The table associated with the model.
      *

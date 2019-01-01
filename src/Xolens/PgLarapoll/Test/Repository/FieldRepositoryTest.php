@@ -23,10 +23,12 @@ final class FieldRepositoryTest extends WritableTestPgLarapollBase
      * @test
      */
     public function test_make(){
+        $types = ['Integer', 'Number', 'Boolean', 'String', 'Date', 'Select',];
+        $index = rand(0, 5);
         $i = rand(0, 10000);
         $item = $this->repository()->make([
-            'type' => 'type'.$i,
-            'name' => 'name'.$i,
+            'type' => $types[$index],            'name' => 'name'.$i,
+            'display_text' => 'display_text'.$i,
             'required' => 'required'.$i,
             'value_list' => 'valueList'.$i,
             'description' => 'description'.$i,
@@ -51,11 +53,13 @@ final class FieldRepositoryTest extends WritableTestPgLarapollBase
     public function generateItems($toGenerateCount){
         $count = $this->repository()->count()->response();
         $generatedItemsId = [];
-        
+        $types = ['Integer', 'Number', 'Boolean', 'String', 'Date', 'Select',];
+        $index = rand(0, 5);
         for($i=$count; $i<($toGenerateCount+$count); $i++){
             $item = $this->repository()->create([
-                'type' => 'type'.$i,
+                'type' => $types[$index],
                 'name' => 'name'.$i,
+                'display_text' => 'display_text'.$i,
                 'required' => $i%2==0,
                 'value_list' => 'valueList'.$i,
                 'description' => 'description'.$i,
