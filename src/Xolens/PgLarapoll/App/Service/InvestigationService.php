@@ -85,6 +85,16 @@ class InvestigationService {
         $sqlString .= ')';
         return $sqlString;
     }
+
+    public static function getValue($investId, $userInvestigationId){
+        $result = PglarapollCreateFunctionCreateSelectInvestigationValuesQuery::executeUserInvestigationValuesQuery($investId, $userInvestigationId);
+        if(count($result)>0){
+            return self::returnResponse(['data'=>$result[0]]);
+        }else{
+            return self::returnResponse(['data'=>null]);
+        }
+    }
+
     public static function paginateValue($investId, $perPage, $page, $orderProperty, $orderDirection, $likePatern = '%'){
         $result = PglarapollCreateFunctionCreateSelectInvestigationValuesQuery::executeInvestigationValuesQuery($investId, $perPage, $page, $orderProperty, $orderDirection, $likePatern);
         return self::returnResponse(['data'=>$result]);

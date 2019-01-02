@@ -13,6 +13,41 @@ class PglarapollCreateFunctionCreateSelectInvestigationValuesQuery extends PgLar
         return false;
     }
 
+    public static function executeUserInvestigationValuesQuery($investId, $userInvestigationId){
+    $partialQuery = PglarapollCreateFunctionCreateSelectInvestigationValuesQuery::invoque($investId);
+        if($partialQuery){
+            $result = DB::select(DB::raw('
+                WITH investigation_values as (
+                    '.$partialQuery.'
+                )
+                SELECT 
+                    investigation_values.*,
+
+                    '.PgLarapollCreateTableUserInvestigations::table().'.state as user_investigation_state,
+                    '.PgLarapollCreateTableUserInvestigations::table().'.create_time as user_investigation_create_time,
+                    '.PgLarapollCreateTableUserInvestigations::table().'.send_time as user_investigation_send_time,
+                    '.PgLarapollCreateTableUserInvestigations::table().'.submit_time as user_investigation_submit_time,
+                    '.PgLarapollCreateTableUserInvestigations::table().'.update_time as user_investigation_update_time,
+                    '.PgLarapollCreateTableUserInvestigations::table().'.validation_time as user_investigation_validation_time,
+
+                    count(investigation_values.user_investigation_id) OVER() as total,
+                    '.PgLarapollCreateTableUsers::table().'.name as user_name,
+                    '.PgLarapollCreateTableUsers::table().'.email as user_email,
+                    '.PgLarapollCreateTableUsers::table().'.phone as user_phone,
+                    '.PgLarapollCreateTableUsers::table().'.category as user_category
+                FROM 
+                investigation_values
+                JOIN '.PgLarapollCreateTableUserInvestigations::table().' ON investigation_values.user_investigation_id =  '.PgLarapollCreateTableUserInvestigations::table().'.id
+                JOIN '.PgLarapollCreateTableUsers::table().' ON '.PgLarapollCreateTableUsers::table().'.id =  '.PgLarapollCreateTableUserInvestigations::table().'.user_id
+                WHERE 
+                    '.PgLarapollCreateTableUserInvestigations::table().'.investigation_id = ? AND
+                    investigation_values.user_investigation_id = ?
+            '),[$investId, $userInvestigationId]);
+            return $result;
+        }
+        return [];
+    }
+
     public static function executeInvestigationValuesQuery($investId, $perPage, $page, $orderProperty, $orderDirection, $likePatern = '%'){
         $partialQuery = PglarapollCreateFunctionCreateSelectInvestigationValuesQuery::invoque($investId);
         if($partialQuery){
