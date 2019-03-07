@@ -3,8 +3,8 @@
 namespace Xolens\PgLarapoll\Test\Repository\View;
 
 use Xolens\PgLarapoll\App\Repository\View\FieldViewRepository;
-use Xolens\LarautilContract\App\Util\Model\Sorter;
-use Xolens\LarautilContract\App\Util\Model\Filterer;
+use Xolens\PgLarautil\App\Util\Model\Sorter;
+use Xolens\PgLarautil\App\Util\Model\Filterer;
 use Xolens\PgLarapoll\Test\ReadOnlyTestPgLarapollBase;
 
 final class FieldViewRepositoryTest extends ReadOnlyTestPgLarapollBase

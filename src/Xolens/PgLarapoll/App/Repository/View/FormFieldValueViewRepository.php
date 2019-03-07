@@ -4,10 +4,10 @@ namespace Xolens\PgLarapoll\App\Repository\View;
 
 use Xolens\PgLarapoll\App\Model\FormFieldValue;
 use Xolens\PgLarapoll\App\Model\View\FormFieldValueView;
-use Xolens\PollContract\App\Contract\Repository\View\FormFieldValueViewRepositoryContract;
+use Xolens\PgLarapoll\App\Repository\View\FormFieldValueViewRepositoryContract;
 use Xolens\PgLarautil\App\Repository\AbstractReadableRepository;
-use Xolens\LarautilContract\App\Util\Model\Filterer;
-use Xolens\LarautilContract\App\Util\Model\Sorter;
+use Xolens\PgLarautil\App\Util\Model\Filterer;
+use Xolens\PgLarautil\App\Util\Model\Sorter;
 
 class FormFieldValueViewRepository extends AbstractReadableRepository implements FormFieldValueViewRepositoryContract
 {

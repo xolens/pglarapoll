@@ -3,7 +3,7 @@
 namespace Xolens\PgLarapoll\App\Repository;
 
 use Xolens\PgLarapoll\App\Model\Investigation;
-use Xolens\PollContract\App\Contract\Repository\InvestigationRepositoryContract;
+use Xolens\PgLarapoll\App\Repository\InvestigationRepositoryContract;
 use Xolens\PgLarautil\App\Repository\AbstractWritableRepository;
 use Illuminate\Validation\Rule;
 use PgLarapollCreateTableInvestigations;

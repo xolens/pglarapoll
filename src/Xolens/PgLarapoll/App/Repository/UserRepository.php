@@ -3,7 +3,7 @@
 namespace Xolens\PgLarapoll\App\Repository;
 
 use Xolens\PgLarapoll\App\Model\User;
-use Xolens\PollContract\App\Contract\Repository\UserRepositoryContract;
+use Xolens\PgLarapoll\App\Repository\UserRepositoryContract;
 use Xolens\PgLarautil\App\Repository\AbstractWritableRepository;
 use Illuminate\Validation\Rule;
 use PgLarapollCreateTableUsers;

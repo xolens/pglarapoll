@@ -4,10 +4,10 @@ namespace Xolens\PgLarapoll\App\Repository\View;
 
 use Xolens\PgLarapoll\App\Model\UserInvestigation;
 use Xolens\PgLarapoll\App\Model\View\UserInvestigationView;
-use Xolens\PollContract\App\Contract\Repository\View\UserInvestigationViewRepositoryContract;
+use Xolens\PgLarapoll\App\Repository\View\UserInvestigationViewRepositoryContract;
 use Xolens\PgLarautil\App\Repository\AbstractReadableRepository;
-use Xolens\LarautilContract\App\Util\Model\Filterer;
-use Xolens\LarautilContract\App\Util\Model\Sorter;
+use Xolens\PgLarautil\App\Util\Model\Filterer;
+use Xolens\PgLarautil\App\Util\Model\Sorter;
 
 class UserInvestigationViewRepository extends AbstractReadableRepository implements UserInvestigationViewRepositoryContract
 {

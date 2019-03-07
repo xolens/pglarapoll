@@ -4,8 +4,8 @@ namespace Xolens\PgLarapoll\Test\Repository;
 
 use Xolens\PgLarapoll\App\Repository\UserRepository;
 use Xolens\PgLarapoll\App\Repository\GroupRepository;
-use Xolens\LarautilContract\App\Util\Model\Sorter;
-use Xolens\LarautilContract\App\Util\Model\Filterer;
+use Xolens\PgLarautil\App\Util\Model\Sorter;
+use Xolens\PgLarautil\App\Util\Model\Filterer;
 use Xolens\PgLarapoll\Test\WritableTestPgLarapollBase;
 
 final class UserRepositoryTest extends WritableTestPgLarapollBase

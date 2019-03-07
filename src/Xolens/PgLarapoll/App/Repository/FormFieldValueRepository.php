@@ -3,7 +3,7 @@
 namespace Xolens\PgLarapoll\App\Repository;
 
 use Xolens\PgLarapoll\App\Model\FormFieldValue;
-use Xolens\PollContract\App\Contract\Repository\FormFieldValueRepositoryContract;
+use Xolens\PgLarapoll\App\Repository\FormFieldValueRepositoryContract;
 use Xolens\PgLarautil\App\Repository\AbstractWritableRepository;
 use Illuminate\Validation\Rule;
 use PgLarapollCreateTableFormFieldValues;

@@ -10,8 +10,8 @@ use Xolens\PgLarapoll\App\Model\User;
 use Xolens\PgLarapoll\App\Model\UserInvestigation;
 use Xolens\PgLarapoll\App\Model\FormFieldValue;
 use Xolens\PgLarapoll\App\Model\View\FormFieldValueView;
-use Xolens\LarautilContract\App\Util\Model\Sorter;
-use Xolens\LarautilContract\App\Util\Model\Filterer;
+use Xolens\PgLarautil\App\Util\Model\Sorter;
+use Xolens\PgLarautil\App\Util\Model\Filterer;
 use PglarapollCreateFunctionCreateSelectInvestigationValuesQuery;
 
 class InvestigationService {
