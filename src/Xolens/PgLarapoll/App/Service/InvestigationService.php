@@ -4,7 +4,7 @@ namespace Xolens\PgLarapoll\App\Service;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Collection;
-use Xolens\LarautilContract\App\Repository\RepositoryResponse;
+use Xolens\PgLarautil\App\Util\RepositoryResponse;
 use Xolens\PgLarapoll\App\Model\Investigation;
 use Xolens\PgLarapoll\App\Model\User;
 use Xolens\PgLarapoll\App\Model\UserInvestigation;
