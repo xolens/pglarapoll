@@ -30,12 +30,11 @@ class PgLarapollCreateTableFields extends PgLarapollMigration
             $table->string('display_text');
             $table->enum('type',['Integer', 'Number', 'Boolean', 'String', 'Date', 'Select',]);  
             $table->boolean('required');
-            $table->text('size')->nullable();
+            $table->integer('size')->nullable();
             $table->text('value_list')->nullable();
             $table->text('default_value')->nullable();
             $table->text('description')->nullable();
            
-        '', ''
         });
         if(self::logEnabled()){
             self::registerForLog();
