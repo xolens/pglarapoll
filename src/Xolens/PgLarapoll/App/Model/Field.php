@@ -18,6 +18,7 @@ class Field extends Model
      */
     protected $fillable = [
         'id', 'type', 'name', 'display_text', 'required', 'value_list', 'description', 
+        'size', 'default_value'
     ];
 
     /**
